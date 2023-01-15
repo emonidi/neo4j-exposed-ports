@@ -1,0 +1,23 @@
+ingress-nginx:
+  tcp:
+    7474: "default/{{.Release.Name}}-neo4j:7474"
+    7687: "default/{{.Release.Name}}-neo4j:7687"
+  controller:
+    customPorts: [
+      {"containerPort":7474, "hostPort":7474},
+      {"containerPort":7687, "hostPort":7687}
+    ]
+    ingressClassResource:
+      name: "nginx-tcp"
+      controllerValue: "k8s.io/ingress-nginx-tcp"
+      enabled: true
+    ingressClassByName: true
+neo4j-standalone:
+  neo4j:
+    name: "neo4j"
+    password: "test"
+    spec: 
+      type: ClusterIP
+  volumes:
+    data:
+      mode: "defaultStorageClass"
