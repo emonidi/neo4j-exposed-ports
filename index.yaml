@@ -1,0 +1,79 @@
+apiVersion: v1
+entries:
+  ingress-nginx:
+  - annotations:
+      artifacthub.io/changes: |
+        - Adding support for disabling liveness and readiness probes to the Helm chart
+        - add:(admission-webhooks) ability to set securityContext
+        - Updated Helm chart to use the fullname for the electionID if not specified
+        - Rename controller-wehbooks-networkpolicy.yaml
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.5.1
+    created: "2023-01-15T14:58:25.3543042+01:00"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: 949a8550fd9961a44704fd0e6508edea3901ee942caaf0e2d56f10d281228e05
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - name: rikatz
+    - name: strongjz
+    - name: tao12345666333
+    name: ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - charts/ingress-nginx-4.4.2.tgz
+    version: 4.4.2
+  neo4j-exported:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-01-15T14:58:25.3497577+01:00"
+    dependencies:
+    - name: ingress-nginx
+      repository: https://kubernetes.github.io/ingress-nginx
+      version: 4.4.2
+    - name: neo4j-standalone
+      repository: https://neo4j.github.io/helm-charts/
+      version: 4.4.13
+    description: A Helm chart for Kubernetes
+    digest: 6c90ba3bdddcf23afa8eef8d159a4f5f4df17d51a5f30ffe7e0569b2d5975745
+    name: neo4j-exported
+    type: application
+    urls:
+    - neo4j-exported-0.1.0.tgz
+    version: 0.1.0
+  neo4j-standalone:
+  - apiVersion: v2
+    appVersion: 4.4.13
+    created: "2023-01-15T14:58:25.3558808+01:00"
+    dependencies:
+    - name: neo4j-shared-templates
+      repository: file://../neo4j-shared-templates
+      version: 4.4.13
+    description: Neo4j is the world's leading graph database
+    digest: fd0a4812daee093584823fe6e139626cd10bf63e27420974c704a2c95389130c
+    home: https://www.neo4j.com
+    icon: http://info.neo4j.com/rs/773-GON-065/images/neo4j_logo.png
+    keywords:
+    - graph
+    - database
+    - cypher
+    maintainers:
+    - email: bledi.feshti@neotechnology.com
+      name: bfeshti
+    - email: harshit.singhvi@neotechnology.com
+      name: harshitsinghvi22
+    name: neo4j-standalone
+    sources:
+    - https://github.com/neo4j/neo4j
+    - https://github.com/neo4j/docker-neo4j
+    urls:
+    - charts/neo4j-standalone-4.4.13.tgz
+    version: 4.4.13
+generated: "2023-01-15T14:58:25.3448935+01:00"
