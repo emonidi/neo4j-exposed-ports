@@ -2,10 +2,10 @@ ingress-nginx:
   tcp:
     7474: "default/{{.Release.Name}}-neo4j:7474"
     7687: "default/{{.Release.Name}}-neo4j:7687"
-    7473: "default/{{.Release.Name}}-neo4j:7473"
+    # 7473: "default/{{.Release.Name}}-neo4j:7473"
   controller:
     customPorts: [
-      {"containerPort":7473, "hostPort":7473},
+      # {"containerPort":7473, "hostPort":7473},
       {"containerPort":7474, "hostPort":7474},
       {"containerPort":7687, "hostPort":7687}
     ]
